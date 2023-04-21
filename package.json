@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "global": "^4.4.0",
+    "node": "^19.8.1"
+  },
+  "name": "go-api-rest-gin",
+  "version": "1.0.0",
+  "main": "main.go",
+  "scripts": {
+    "app": "nodemon --exec go run main.go"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
