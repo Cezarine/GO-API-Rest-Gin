@@ -1,9 +1,11 @@
 package models
 
-type Aluno struct {
-	Nome string `json:"nome"`
-	CPF  string `json:"cpf"`
-	RG   string `json:"rg"`
-}
+import "gorm.io/gorm"
 
-var Alunos []Aluno
+type Aluno struct {
+	gorm.Model
+	Nome  string `json:"nome" gorm:"not null"`
+	CPF   string `json:"cpf"`
+	RG    string `json:"rg"`
+	Ativo bool   `json:"Ativo" gorm:"default:true; not null"`
+}
