@@ -173,17 +173,24 @@ func EditaAluno(c *gin.Context) {
 		return
 	}
 
-	/*if err := database.DB.Model(&aluno).UpdateColumns(aluno).Error; err != nil {
+	if err := database.DB.Model(&aluno).UpdateColumns(&aluno).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"message": "Erro ao alterar Aluno " + id,
 			"error":   err.Error(),
 		})
 		return
-	}*/
+	}
 
-	database.DB.Save(&aluno)
+	//	database.DB.Save(&aluno)
 	c.JSON(http.StatusOK, gin.H{
 		"message": "Aluno " + id + " alterado com sucesso",
 		"aluno":   aluno,
+	})
+}
+
+func ExibePaginaIndex(c *gin.Context) {
+	var alunos []models.Aluno
+	c.HTML(http.StatusOK, "index.html", gin.H{
+		"mensagem": "Boas vindas",
 	})
 }

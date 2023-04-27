@@ -9,6 +9,8 @@ const port = ":8000"
 
 func HandRequests() {
 	r := gin.Default()
+	r.LoadHTMLGlob("templates/*")
+	r.GET("", controllers.ExibePaginaIndex)
 	r.GET("/alunos", controllers.GetAlunos)
 	r.GET("/alunos/cpf/:cpf", controllers.GetAlunoCPF)
 	r.GET("/:nome", controllers.Saudacao)
@@ -17,6 +19,6 @@ func HandRequests() {
 	r.POST("/alunos", controllers.CriaNovoAluno)
 	r.DELETE("/alunos/deleta/:id", controllers.DeletaAluno)
 	r.PUT("/alunos/:id/:ativo", controllers.AtivaInativaAluno)
-	r.PATCH("/alunos/:id", controllers.EditaAluno)
+	r.PUT("/alunos/:id", controllers.EditaAluno)
 	r.Run(port)
 }
